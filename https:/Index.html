@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lester Ochoa Reformas</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f4f4;
+    color:#171717;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(10,10,10,.96);
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.header{
+    max-width:1200px;
+    margin:auto;
+    height:75px;
+    padding:0 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    color:white;
+    text-decoration:none;
+    font-size:21px;
+    font-weight:900;
+}
+
+.logo span{
+    color:#d71920;
+}
+
+nav{
+    display:flex;
+    gap:28px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.25s;
+}
+
+nav a:hover{
+    color:#d71920;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    padding:130px 20px 80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    background:
+    linear-gradient(rgba(0,0,0,.66),rgba(0,0,0,.78)),
+    url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+}
+
+.hero-content{
+    max-width:850px;
+    color:white;
+}
+
+.hero h1{
+    font-size:clamp(42px,8vw,78px);
+    line-height:1;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#d71920;
+}
+
+.hero p{
+    font-size:20px;
+    line-height:1.7;
+    color:#e8e8e8;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 25px;
+    border-radius:7px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.btn-red{
+    background:#d71920;
+    color:white;
+}
+
+.btn-red:hover{
+    background:#b71117;
+    transform:translateY(-3px);
+}
+
+.btn-white{
+    background:white;
+    color:#111;
+}
+
+.btn-white:hover{
+    transform:translateY(-3px);
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 20px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title h2{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.title p{
+    color:#666;
+}
+
+/* SERVICES */
+
+.services{
+    background:white;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.service{
+    background:#f7f7f7;
+    border:1px solid #e4e4e4;
+    border-radius:14px;
+    padding:35px 25px;
+    text-align:center;
+    transition:.3s;
+}
+
+.service:hover{
+    transform:translateY(-7px);
+    box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+
+.service img{
+    width:75px;
+    height:75px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+.service h3{
+    margin-bottom:12px;
+    font-size:21px;
+}
+
+.service p{
+    color:#666;
+    line-height:1.6;
+}
+
+/* GALERIA */
+
+.gallery{
+    background:#101010;
+    color:white;
+}
+
+.gallery .title p{
+    color:#aaa;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.photo{
+    position:relative;
+    height:270px;
+    overflow:hidden;
+    border-radius:12px;
+    cursor:pointer;
+    background:#222;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.photo:hover img{
+    transform:scale(1.08);
+}
+
+.photo-text{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:25px 18px 18px;
+
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.9)
+    );
+
+    font-weight:bold;
+}
+
+/* ABOUT */
+
+.about{
+    background:white;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.about-image img{
+    width:100%;
+    display:block;
+    border-radius:15px;
+}
+
+.about-text h2{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:17px;
+}
+
+/* CONTACT */
+
+.contact{
+    background:#d71920;
+    color:white;
+}
+
+.contact-box{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+}
+
+.contact-box h2{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.contact-box p{
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.contact-button{
+    background:white;
+    color:#111;
+    padding:16px 25px;
+    border-radius:7px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.contact-button:hover{
+    transform:translateY(-3px);
+}
+
+/* FOOTER */
+
+footer{
+    background:#080808;
+    color:#aaa;
+    text-align:center;
+    padding:30px 20px;
+}
+
+footer strong{
+    color:white;
+}
+
+/* IMAGEN AMPLIADA */
+
+.viewer{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.94);
+    z-index:3000;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:25px;
+}
+
+.viewer.active{
+    display:flex;
+}
+
+.viewer img{
+    max-width:95%;
+    max-height:90vh;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:25px;
+
+    color:white;
+    font-size:38px;
+    cursor:pointer;
+}
+
+/* MOBILE */
+
+.mobile-button{
+    display:none;
+    width:42px;
+    height:34px;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+}
+
+.mobile-button span{
+    display:block;
+    height:3px;
+    margin:6px 0;
+    background:white;
+}
+
+@media(max-width:800px){
+
+    .mobile-button{
+        display:block;
+    }
+
+    nav{
+        display:none;
+        position:absolute;
+        top:75px;
+        left:0;
+        width:100%;
+        background:#0a0a0a;
+        flex-direction:column;
+        gap:0;
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    nav a{
+        padding:18px 25px;
+        border-top:1px solid #222;
+    }
+
+    .services-grid,
+    .gallery-grid,
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .photo{
+        height:240px;
+    }
+
+    .title h2,
+    .about-text h2{
+        font-size:34px;
+    }
+
+    .contact-box h2{
+        font-size:36px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+<a href="#inicio" class="logo">
+Lester Ochoa <span>Reformas</span>
+</a>
+
+<button class="mobile-button" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</button>
+
+<nav id="menu">
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#obras">Obras</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- INICIO -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<h1>
+Lester Ochoa
+<span>Reformas</span>
+</h1>
+
+<p>
+Obras, reformas y renovación de espacios
+con atención al detalle y un acabado profesional.
+</p>
+
+<div class="buttons">
+
+<a href="#contacto" class="btn btn-red">
+Solicitar presupuesto
+</a>
+
+<a href="#obras" class="btn btn-white">
+Ver obras
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICIOS -->
+
+<section class="services" id="servicios">
+
+<div class="container">
+
+<div class="title">
+
+<h2>Servicios</h2>
+
+<p>
+Soluciones para diferentes tipos de proyectos.
+</p>
+
+</div>
+
+<div class="services-grid">
+
+
+<div class="service">
+
+<img
+src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=500&q=80"
+alt="Obras">
+
+<h3>Obras</h3>
+
+<p>
+Trabajos de construcción y renovación
+adaptados a cada proyecto.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<img
+src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=500&q=80"
+alt="Reformas">
+
+<h3>Reformas</h3>
+
+<p>
+Transformación de viviendas y espacios
+para conseguir un nuevo resultado.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<img
+src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=500&q=80"
+alt="Interiores">
+
+<h3>Interiores</h3>
+
+<p>
+Mejora y renovación de interiores
+cuidando cada detalle.
+</p>
+
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+<!-- OBRAS -->
+
+<section class="gallery" id="obras">
+
+<div class="container">
+
+<div class="title">
+
+<h2>Galería de obras</h2>
+
+<p>
+Algunos ejemplos visuales de reformas y construcción.
+</p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+
+<div class="photo"
+onclick="openImage(this.querySelector('img').src)">
+
+<img
+src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85"
+alt="Reforma de vivienda">
+
+<div class="photo-text">
+Reforma de vivienda
+</div>
+
+</div>
+
+
+<div class="photo"
+onclick="openImage(this.querySelector('img').src)">
+
+<img
+src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85"
+alt="Reforma de cocina">
+
+<div class="photo-text">
+Reforma de cocina
+</div>
+
+</div>
+
+
+<div class="photo"
+onclick="openImage(this.querySelector('img').src)">
+
+<img
+src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+alt="Interior">
+
+<div class="photo-text">
+Interior
+</div>
+
+</div>
+
+
+<div class="photo"
+onclick="openImage(this.querySelector('img').src)">
+
+<img
+src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85"
+alt="Proyecto">
+
+<div class="photo-text">
+Proyecto de reforma
+</div>
+
+</div>
+
+
+<div class="photo"
+onclick="openImage(this.querySelector('img').src)">
+
+<img
+src="https://images.unsplash.com/photo-1600566753051-f0b89df2dd90?auto=format&fit=crop&w=1200&q=85"
+alt="Construcción">
+
+<div class="photo-text">
+Construcción
+</div>
+
+</div>
+
+
+<div class="photo"
+onclick="openImage(this.querySelector('img').src)">
+
+<img
+src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+alt="Acabados">
+
+<div class="photo-text">
+Acabados
+</div>
+
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+<!-- NOSOTROS -->
+
+<section class="about" id="nosotros">
+
+<div class="container">
+
+<div class="about-grid">
+
+<div class="about-image">
+
+<img
+src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85"
+alt="Trabajo de construcción">
+
+</div>
+
+
+<div class="about-text">
+
+<h2>
+Lester Ochoa Reformas
+</h2>
+
+<p>
+Realizamos trabajos de obras y reformas
+para transformar y mejorar diferentes espacios.
+</p>
+
+<p>
+Cada proyecto requiere planificación,
+cuidado y atención a los acabados.
+</p>
+
+<a href="#contacto" class="btn btn-red">
+Contactar
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACTO -->
+
+<section class="contact" id="contacto">
+
+<div class="container">
+
+<div class="contact-box">
+
+<h2>
+Hablemos de tu proyecto
+</h2>
+
+<p>
+Solicita información o ponte en contacto
+para consultar tu proyecto de reforma.
+</p>
+
+
+<div class="contact-buttons">
+
+<a
+class="contact-button"
+href="https://wa.me/34643967819"
+target="_blank">
+
+WhatsApp
+
+</a>
+
+
+<a
+class="contact-button"
+href="tel:+34643967819">
+
+Llamar
+
+</a>
+
+
+<a
+class="contact-button"
+href="mailto:lestervasquez449@gmail.com">
+
+Correo
+
+</a>
+
+</div>
+
+
+<p style="margin-top:30px;margin-bottom:0;">
+
++34 643 96 78 19
+<br>
+lestervasquez449@gmail.com
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+© <span id="year"></span>
+<strong>Lester Ochoa Reformas</strong>
+</p>
+
+<p style="margin-top:8px;">
+Obras y reformas
+</p>
+
+</footer>
+
+
+<!-- VISOR -->
+
+<div class="viewer" id="viewer" onclick="closeImage()">
+
+<div class="close">
+×
+</div>
+
+<img id="viewerImage" alt="Imagen ampliada">
+
+</div>
+
+
+<script>
+
+function toggleMenu(){
+
+    document
+    .getElementById("menu")
+    .classList
+    .toggle("active");
+
+}
+
+
+document
+.querySelectorAll("nav a")
+.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        document
+        .getElementById("menu")
+        .classList
+        .remove("active");
+
+    });
+
+});
+
+
+function openImage(src){
+
+    document
+    .getElementById("viewerImage")
+    .src = src;
+
+    document
+    .getElementById("viewer")
+    .classList
+    .add("active");
+
+}
+
+
+function closeImage(){
+
+    document
+    .getElementById("viewer")
+    .classList
+    .remove("active");
+
+}
+
+
+document
+.getElementById("year")
+.textContent = new Date().getFullYear();
+
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        closeImage();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
